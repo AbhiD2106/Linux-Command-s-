@@ -1,182 +1,84 @@
-# Check current directory
-pwd
+# Linux/CMD Commands Practice
 
-# List files
-ls
-ls -a
-ls -l
-ls -lh
-ls -lha
+A log of basic file and directory commands practiced in a Windows terminal (Git Bash / Unix-style commands).
 
-# Print current directory
-cd
+## 📁 Navigation & Directory Management
 
-# Navigate directories
-cd TDPCL
-cd ..
+```bash
+pwd                     # Print working directory
+ls                       # List files and directories
+ls -a                    # List all files, including hidden ones
+ls -l                    # List in long format
+ls -lh                   # Long format with human-readable sizes
+ls -lha                  # Long format, all files, human-readable sizes
+cd                       # Go to root/home directory
+cd TDPCL                 # Move into TDPCL directory
+cd ..                    # Move up one directory
+mkdir cmd_commands       # Create a new directory
+cd cmd_commands          # Move into the new directory
+```
 
-# Create a new directory
-mkdir cmd_commands
+## 📄 File & Folder Creation/Deletion
 
-# Verify
-ls
+```bash
+mkdir demo.txt           # Create a directory (note: .txt here is just a folder name)
+rmdir demo.txt           # Remove an empty directory
+mkdir demo               # Create "demo" directory
+```
 
-# Enter directory
-cd cmd_commands
+## 📦 Copy & Move
 
-# Check contents
-ls
+```bash
+cp mytxt.txt demo        # Copy a file into the demo folder
+mv mytxt.txt demo        # Move a file into the demo folder
+mv filee.txt myfile.txt  # Rename a file
+mv filee.txt E:\cmd_commands   # Move a file to another path
+```
 
-# Go back
-cd ..
+## 🗑️ Removing Files/Folders
 
-# Verify
-ls
+```bash
+rm mytxt.txt             # Remove a file
+rm -r cmds.txt           # Remove a directory and its contents recursively
+```
 
-# Enter again
-cd cmd_commands
+## 📖 Viewing & Creating File Content
 
-# Create an empty directory
-mkdir demo
+```bash
+cat myfile.txt           # Display file content
+cat > abhi.txt           # Create a new file and type content (Ctrl+D / Ctrl+Z to save)
+cat abhi.txt             # Display file content
+cat *.txt                # Display content of all .txt files
+cat copy.txt > paste.txt # Overwrite paste.txt with copy.txt's content
+cat copy.txt >> paste.txt # Append copy.txt's content to paste.txt
+cat copy.txt paste.txt >> murge.txt  # Merge multiple files into one
+```
 
-# Verify
-ls
+## 📊 Disk Usage
 
-# Remove empty directory
-rmdir demo
+```bash
+du                       # Show disk usage of files/folders
+du -h                    # Show disk usage in human-readable format
+```
 
-# Verify
-ls
+## 🔍 Searching with grep
 
-# (Assume mytxt.txt already exists)
+```bash
+grep abhi abhi.txt       # Search for "abhi" in a specific file
+grep copy copy.txt       # Search for "copy" in a specific file
+grep abhi *.txt          # Search for "abhi" across all .txt files
+```
 
-# Verify files
-ls
+## 🧹 Other Useful Commands
 
-# Copy file into demo directory
-cp mytxt.txt demo
+```bash
+clear                    # Clear the terminal screen
+exit                     # Exit the terminal session
+```
 
-# Verify
-ls
+---
 
-# Enter demo directory
-cd demo
-
-# Verify copied file
-ls
-
-# Delete copied file
-rm mytxt.txt
-
-# Verify
-ls
-
-# Go back
-cd ..
-
-# Verify
-ls
-
-# Move file into demo directory
-mv mytxt.txt demo
-
-# Enter demo
-cd demo
-
-# Move file back to parent directory
-mv mytxt.txt ..
-
-# Verify
-ls
-
-# Create directory
-mkdir cmds
-
-# Verify
-ls
-
-# Remove directory recursively
-rm -r cmds
-
-# Verify
-ls
-
-# Assume filee.txt exists
-
-# Move file to parent directory
-mv filee.txt ..
-
-# Go back
-cd ..
-
-# Rename file
-mv filee.txt myfile.txt
-
-# Verify
-ls
-
-# Display file
-cat myfile.txt
-
-# Create file
-cat > abhi.txt
-hello im abhi
-# Press Ctrl + D
-
-# Display file
-cat abhi.txt
-
-# List files
-ls
-
-# Display all text files
-cat *.txt
-
-# Create copy.txt
-cat > copy.txt
-this is copy file
-# Press Ctrl + D
-
-# Create paste.txt
-cat > paste.txt
-this is paste file
-# Press Ctrl + D
-
-# Overwrite paste.txt
-cat copy.txt > paste.txt
-
-# Verify
-cat copy.txt
-cat paste.txt
-
-# Recreate paste.txt
-cat > paste.txt
-this is paste file
-# Press Ctrl + D
-
-# Append
-cat copy.txt >> paste.txt
-
-# Verify
-cat paste.txt
-
-# Merge files
-cat copy.txt paste.txt > merge.txt
-
-# Verify
-cat merge.txt
-
-# Disk usage
-du
-du -h
-
-# Search text
-grep abhi abhi.txt
-grep copy copy.txt
-grep abhi *.txt
-
-# Clear terminal
-clear
-
-# Exit terminal
-exit
+### 📝 Notes
+- `ls`, `cd`, `mkdir`, `cp`, `mv`, `rm`, `cat`, `grep`, `du` are core commands for navigating and managing files — essential for Data Engineering work involving servers, Docker, Spark clusters, and cloud VMs (which mostly run Linux).
+- `>` overwrites a file with output, while `>>` appends to it.
+- Always double-check before using `rm -r`, as it deletes directories and their contents permanently.
