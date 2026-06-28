@@ -1,0 +1,37 @@
+In Data Engineering, Linux isn't optional trivia — almost everything you'll touch (servers, Airflow, Spark clusters, Docker, cloud VMs, CI/CD runners) runs on Linux under the hood. Here's where each piece actually gets used:
+Why Data Engineers need Linux
+1. Navigating & managing files on servers
+
+pwd, ls, cd, mkdir, cp, mv, rm
+Use case: SSH into a VM or cloud instance to check where pipeline output files landed, move logs, clean up old data dumps.
+
+2. Searching & inspecting data files
+
+cat, head, tail, grep, find, sort, uniq, wc
+Use case: You don't always have a GUI. You'll grep through huge log files to find why a pipeline failed at 3 AM, or head a massive CSV to check its structure before loading it.
+
+3. Permissions
+
+chmod
+Use case: A script can't execute, or a service account can't read a file — this is almost always a permissions issue.
+
+4. Process management
+
+ps, kill, top
+Use case: A Spark job or Python script is hung or eating all the memory on a server — you find and kill it.
+
+5. Bash scripting
+
+Variables, loops, conditionals
+Use case: This is huge. Automating things like "every night, move yesterday's files to an archive folder, rename them, compress them, and log the result" — exactly what you'll do before a proper orchestrator (Airflow/ADF) is even involved, and still useful alongside one.
+
+6. Cron jobs
+
+Use case: Scheduling a script to run automatically without needing Airflow/ADF for simple recurring tasks.
+
+7. Where it shows up in the bigger stack
+
+Docker containers are Linux under the hood
+Spark/Hadoop clusters run on Linux
+Cloud VMs (Azure VMs, EC2) are usually Linux
+CI/CD pipelines run Linux-based runners
